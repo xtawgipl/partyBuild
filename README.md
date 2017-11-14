@@ -3,7 +3,7 @@ springboot完整示例</br>
 springboot + mybatis + mysql + freemarker + swagger 应用示例</br>
 一个完整可直接运行的springboot项目示例</br>
 其中：</br>
-	一、使用swagger提供对外api描述</br>
+	&emsp;一、使用swagger提供对外api描述</br>
 	二、springboot对jsp支持不够，使用freemarker做为view展示</br>
 	三、自实现springboot分页插件（party-build-common/src/main/java/com/tydic/traffic/page）</br>
 		分页插件网上有很多示例但存在很多不足之处，这里做了以下强化：</br>
