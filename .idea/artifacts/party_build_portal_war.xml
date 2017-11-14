@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="party-build-portal:war">
+    <output-path>$PROJECT_DIR$/party-build-portal/target</output-path>
+    <root id="archive" name="party-build-portal-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="party-build-portal:war exploded" />
+    </root>
+  </artifact>
+</component>

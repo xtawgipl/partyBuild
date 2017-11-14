@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/party-build-common/party-build-common.iml" filepath="$PROJECT_DIR$/party-build-common/party-build-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/party-build-entity/party-build-entity.iml" filepath="$PROJECT_DIR$/party-build-entity/party-build-entity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/party-build-mapper/party-build-mapper.iml" filepath="$PROJECT_DIR$/party-build-mapper/party-build-mapper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/party-build-parent.iml" filepath="$PROJECT_DIR$/party-build-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/party-build-portal/party-build-portal.iml" filepath="$PROJECT_DIR$/party-build-portal/party-build-portal.iml" />
+      <module fileurl="file://$PROJECT_DIR$/party-build-portal-freemarker/party-build-portal-freemarker.iml" filepath="$PROJECT_DIR$/party-build-portal-freemarker/party-build-portal-freemarker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/party-build-service/party-build-service.iml" filepath="$PROJECT_DIR$/party-build-service/party-build-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/party-build-util/party-build-util.iml" filepath="$PROJECT_DIR$/party-build-util/party-build-util.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tydic.traffic.mapper.UserInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.tydic.traffic.entity.UserInfoBean" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="policeman_id" property="policemanId" jdbcType="BIGINT" />
+    <result column="org_rank" property="orgRank" jdbcType="VARCHAR" />
+    <result column="department_positions" property="departmentPositions" jdbcType="VARCHAR" />
+    <result column="party_branch" property="partyBranch" jdbcType="VARCHAR" />
+    <result column="party_duty" property="partyDuty" jdbcType="VARCHAR" />
+    <result column="party_time" property="partyTime" jdbcType="VARCHAR" />
+    <result column="role" property="role" jdbcType="INTEGER" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, policeman_id, org_rank, department_positions, party_branch, party_duty, party_time, 
+    role, password
+  </sql>
+
+  <update id="update" parameterType="com.tydic.traffic.entity.UserInfoBean">
+    update t_user_info
+    <set>
+      <if test="userInfo.orgRank != null">
+        org_rank = #{userInfo.orgRank,jdbcType=VARCHAR},
+      </if>
+      <if test="userInfo.departmentPositions != null">
+        department_positions = #{userInfo.departmentPositions,jdbcType=VARCHAR},
+      </if>
+      <if test="userInfo.partyBranch != null">
+        party_branch = #{userInfo.partyBranch,jdbcType=VARCHAR},
+      </if>
+      <if test="userInfo.partyDuty != null">
+        party_duty = #{userInfo.partyDuty,jdbcType=VARCHAR},
+      </if>
+      <if test="userInfo.partyTime != null">
+        party_time = #{userInfo.partyTime,jdbcType=VARCHAR},
+      </if>
+      <if test="userInfo.role != null">
+        role = #{userInfo.role,jdbcType=INTEGER},
+      </if>
+      <if test="userInfo.password != null">
+        password = #{userInfo.password,jdbcType=VARCHAR}
+      </if>
+    </set>
+    <where>
+      1 = 1
+      <if test="userInfo.id != null">
+        and id = #{userInfo.id,jdbcType=BIGINT}
+      </if>
+      <if test="userInfo.policemanId != null">
+        and policeman_id = #{userInfo.policemanId,jdbcType=BIGINT}
+      </if>
+    </where>
+  </update>
+
+  <insert id="insert" parameterType="com.tydic.traffic.entity.UserInfoBean">
+    insert into t_user_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userInfo.id != null">
+        id,
+      </if>
+      <if test="userInfo.policemanId != null">
+        policeman_id,
+      </if>
+      <if test="userInfo.orgRank != null">
+        org_rank,
+      </if>
+      <if test="userInfo.departmentPositions != null">
+        department_positions,
+      </if>
+      <if test="userInfo.partyBranch != null">
+        party_branch,
+      </if>
+      <if test="userInfo.partyDuty != null">
+        party_duty,
+      </if>
+      <if test="userInfo.partyTime != null">
+        party_time,
+      </if>
+      <if test="userInfo.role != null">
+        role,
+      </if>
+      <if test="userInfo.password != null">
+        password,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userInfo.id != null">
+        #{userInfo.id,jdbcType=BIGINT},
+      </if>
+      <if test="userInfo.policemanId != null">
+        #{userInfo.policemanId,jdbcType=BIGINT},
+      </if>
+      <if test="userInfo.orgRank != null">
+        #{userInfo.orgRank,jdbcType=VARCHAR},
+      </if>
+      <if test="userInfo.departmentPositions != null">
+        #{userInfo.departmentPositions,jdbcType=VARCHAR},
+      </if>
+      <if test="userInfo.partyBranch != null">
+        #{userInfo.partyBranch,jdbcType=VARCHAR},
+      </if>
+      <if test="userInfo.partyDuty != null">
+        #{userInfo.partyDuty,jdbcType=VARCHAR},
+      </if>
+      <if test="userInfo.partyTime != null">
+        #{userInfo.partyTime,jdbcType=VARCHAR},
+      </if>
+      <if test="userInfo.role != null">
+        #{userInfo.role,jdbcType=INTEGER},
+      </if>
+      <if test="userInfo.password != null">
+        #{userInfo.password,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+
+  <select id="findUserInfoByName" resultMap="BaseResultMap"
+          parameterType="java.lang.String">
+    select
+    u.*
+    from t_user_info u,t_policeman p where u.policeman_id = p.id
+    and p.xm = #{name,jdbcType=BIGINT}
+  </select>
+</mapper>

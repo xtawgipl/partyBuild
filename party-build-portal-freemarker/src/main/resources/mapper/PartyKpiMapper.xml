@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tydic.traffic.mapper.PartyKpiMapper" >
+  <resultMap id="BaseResultMap" type="com.tydic.traffic.entity.PartyKPIBean" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="policeman_id" property="policemanId" jdbcType="BIGINT" />
+    <result column="working_time" property="workingTime" jdbcType="REAL" />
+    <result column="mileage" property="mileage" jdbcType="REAL" />
+    <result column="law_amount" property="lawAmount" jdbcType="INTEGER" />
+    <result column="alarm_amount" property="alarmAmount" jdbcType="INTEGER" />
+    <result column="date" property="date" jdbcType="VARCHAR" />
+    <result column="station_type" property="stationType" jdbcType="INTEGER" />
+    <result column="month" property="month" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, policeman_id, working_time, mileage, law_amount, alarm_amount, `month`, `date`, station_type
+  </sql>
+  <insert id="insert" parameterType="com.tydic.traffic.entity.PartyKPIBean" >
+    insert into t_party_kpi (policeman_id, working_time,
+      mileage, law_amount, alarm_amount, 
+      `date`, station_type)
+    values (#{partyKPI.policemanId,jdbcType=BIGINT}, #{partyKPI.workingTime,jdbcType=REAL},
+      #{partyKPI.mileage,jdbcType=REAL}, #{partyKPI.lawAmount,jdbcType=INTEGER}, #{partyKPI.alarmAmount,jdbcType=INTEGER},
+      #{partyKPI.date,jdbcType=VARCHAR}, #{partyKPI.stationType,jdbcType=INTEGER})
+  </insert>
+
+  <!-- 该月执勤人列表 -->
+  <select id="listPoliceman" resultMap="BaseResultMap">
+    select policeman_id from t_party_kpi where `month` = #{month,jdbcType=VARCHAR} GROUP BY policeman_id
+  </select>
+
+  <!-- 该 月该 人执勤岗 列表  -->
+  <select id="listStation" resultMap="BaseResultMap">
+    select station_type from t_party_kpi where `month` = #{month,jdbcType=VARCHAR} and policeman_id = #{policemanId,jdbcType=BIGINT} GROUP BY station_type
+  </select>
+
+  <!-- 各总数   -->
+  <select id="sum" resultMap="BaseResultMap">
+    select sum(working_time) working_time ,sum(mileage) mileage,
+           sum(law_amount) law_amount,sum(alarm_amount) alarm_amount
+    from t_party_kpi where `month` = #{month,jdbcType=VARCHAR} and policeman_id = #{policemanId,jdbcType=BIGINT} and station_type = #{stationType,jdbcType=INTEGER}
+  </select>
+</mapper>
