@@ -13,7 +13,7 @@ springboot + mybatis + mysql + freemarker + swagger 应用示例</br>
 		<li>2、查询分页信息时子查询不执行分页查询，某些实现会对子查询也进行分页显然是不对的</li>
 		</ul>
 	<li>四、yml配置文件中的敏感信息加密（比如数据库密码）处理————使用DES对称加密（party-build-common/src/main/java/com/tydic/traffic/encrypt）</li>
-	<li>五、其他springboot相关参考，如：Guava本地缓存springboot插件、常量配置、mvc时间格式化、logback文件支持环境切换配置、多数据源配置等</li>
+	<li>五、其他springboot相关参考，如：Guava本地缓存springboot插件、常量配置、mvc时间格式化、logback文件支持环境切换配置、多数据源配置、Druid监听等</li>
 	</ul>
 </div>	
 		
