@@ -20,8 +20,8 @@ import com.tydic.traffic.page.dialect.DialectType;
 import com.tydic.traffic.page.interceptor.PageInterceptor;
 import com.tydic.traffic.page.starter.PageProterties;
 
-@Configuration
-@MapperScan(basePackages = ClusterDataSourceConfig.PACKAGE, sqlSessionFactoryRef = "clusterSqlSessionFactory")
+//@Configuration
+//@MapperScan(basePackages = ClusterDataSourceConfig.PACKAGE, sqlSessionFactoryRef = "clusterSqlSessionFactory")
 public class ClusterDataSourceConfig {
 
 	// 精确到 cluster 目录，以便跟其他数据源隔离
